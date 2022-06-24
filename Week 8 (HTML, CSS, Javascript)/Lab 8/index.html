@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // Run script once DOM is loaded
+            document.addEventListener('DOMContentLoaded', function() {
+
+                // What to do if correct MC answer is clicked
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    resultMC.innerHTML = 'Correct!';
+                });
+
+                // What to do if incorrect MC answer is clicked
+                let incorrect = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrect.length; i++)
+                {
+                    incorrect[i].addEventListener('click', function() {
+                        incorrect[i].style.backgroundColor = 'red';
+                        resultMC.innerHTML = 'Incorrect';
+                    });
+                }
+
+                // Check free response submission
+                document.querySelector('#check').addEventListener('click', function() {
+                    let ans = document.querySelector('#answer');
+                    if (ans.value == 'Zach')
+                    {
+                        ans.style.backgroundColor = 'green';
+                        resultFR.innerHTML = 'Correct!';
+                    }
+                    else
+                    {
+                        ans.style.backgroundColor = 'red';
+                        resultFR.innerHTML = 'Incorrect';
+                    }
+                });
+            });
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is my birthday?</h3>
+                <button class="incorrect">January 21st</button>
+                <button class="incorrect">March 29th</button>
+                <button class="correct">August 9th</button>
+                <button class="incorrect">October 2nd</button>
+                <button class="incorrect">December 4th</button>
+                <p id="resultMC"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What is my name?</h3>
+                <input autocomplete="off" id="answer" type="text">
+                <input id="check" type="submit" value="Check Answer">
+                <p id="resultFR"></p>
+            </div>
+
+        </div>
+    </body>
+</html>

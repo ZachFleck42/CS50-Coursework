@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: sort1 was slower than sort2 with random data sets, and sort1 worked much faster than sort3 when 'sorting' the already sorted data set.
+
+sort2 uses: Merge sort
+
+How do you know?: sort2 worked much faster than either sort1 or sort3 with large data sets.
+
+sort3 uses: Selection sort
+
+How do you know?: sort3 was slower than sort2 with random data sets, and sort3 was slower than sort1 at 'sorting' the already sorted data set.
